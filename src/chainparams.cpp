@@ -113,7 +113,7 @@ public:
         consensus.powLimit = uint256S("0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f");
         consensus.powAlternate = uint256S("0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f");
         consensus.nPowAveragingWindow = 17;
-        consensus.nMaxFutureBlockTime = 7 * 60; // 7 mins
+        consensus.nMaxFutureBlockTime = 5; // 5 seconds
 
         assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow);
         consensus.nPowMaxAdjustDown = 32; // 32% adjustment down
@@ -256,7 +256,7 @@ public:
         consensus.powAlternate = uint256S("07ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowAveragingWindow = 17;
         assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow);
-        consensus.nMaxFutureBlockTime = 7 * 60;
+        consensus.nMaxFutureBlockTime = 5;
 
         vAlertPubKey = ParseHex("00");
         nDefaultPort = 17770;
@@ -360,7 +360,7 @@ public:
         consensus.powLimit = uint256S("0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f");
         consensus.powAlternate = uint256S("0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f");
         consensus.nPowAveragingWindow = 17;
-        consensus.nMaxFutureBlockTime = 7 * 60; // 7 mins
+        consensus.nMaxFutureBlockTime = 5; // 5 seconds
         assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow);
         consensus.nPowMaxAdjustDown = 0; // Turn off adjustment down
         consensus.nPowMaxAdjustUp = 0; // Turn off adjustment up
@@ -561,7 +561,7 @@ void *chainparams_commandline()
     {
         if ( ASSETCHAINS_BLOCKTIME != 60 )
         {
-            pCurrentParams->consensus.nMaxFutureBlockTime = 7 * ASSETCHAINS_BLOCKTIME; // 7 blocks
+            pCurrentParams->consensus.nMaxFutureBlockTime = 5; // 5 seconds
             pCurrentParams->consensus.nPowTargetSpacing = ASSETCHAINS_BLOCKTIME;
         }
         pCurrentParams->SetDefaultPort(ASSETCHAINS_P2PPORT);
